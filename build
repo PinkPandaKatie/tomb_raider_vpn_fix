@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+lib_name=tomb_raider_vpn_fix.so
+
+echo "Building $lib_name..."
+gcc -m32 -fPIC -shared tomb_raider_vpn_fix.c -o $lib_name -Wall -Os && strip --strip-unneeded $lib_name
+exit $?

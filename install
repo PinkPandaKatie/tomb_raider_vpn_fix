@@ -1,0 +1,37 @@
+#!/bin/sh
+IFS=
+
+cd `dirname $0`
+
+lib_name=tomb_raider_vpn_fix.so
+inst_path=$HOME/.local/lib
+
+if ! [ -e $lib_name ]; then
+    if ! ./build; then
+        echo "Could not build $lib_name"
+        exit 1
+    fi
+fi
+
+mkdir -p $inst_path
+if ! [ -d $inst_path ]; then
+    echo "Could not create install dir $inst_path"
+    exit 1
+fi
+
+rm -f $inst_path/$lib_name
+if ! cp $lib_name $inst_path; then
+    echo "Could not copy $lib_name to $inst_path"
+    exit 1
+fi
+
+echo "Installed in $inst_path"
+echo
+echo "To install, set the launch options for Tomb Raider to:"
+echo
+echo "env LD_PRELOAD=$inst_path/$lib_name %command%"
+echo
+echo "To access launch options in desktop Steam, right click on Tomb Raider in"
+echo "the game list and click Properties, then click Set Launch Options."
+echo "In Big Picture mode, navigate to Tomb Raider, select Manage Game, then"
+echo "select Set Launch Options."
