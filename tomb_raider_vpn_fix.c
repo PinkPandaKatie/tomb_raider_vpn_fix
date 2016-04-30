@@ -5,10 +5,11 @@
  * gcc -m32 -fPIC -shared tomb_raider_vpn_fix.c -o tomb_raider_vpn_fix.so -ldl -Wall
  *
  * Installing:
- * Copy tomb_raider_vpn_fix.so to Tomb Raider dir (.../SteamApps/common/Tomb Raider/bin) then
- * change steam launch options for Tomb Raider to:
+ * Either run the install script, or copy tomb_raider_vpn_fix.so to Tomb Raider dir
+ * (.../SteamApps/common/Tomb Raider/bin) then  change steam launch options for Tomb
+ * Raider to:
  *
- * env LD_PRELOAD=./tomb_raider_vpn_fix.so %command%
+ * env LD_PRELOAD=$LD_PRELOAD:./tomb_raider_vpn_fix.so %command%
  *
  */
 

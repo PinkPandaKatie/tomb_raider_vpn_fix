@@ -29,7 +29,7 @@ echo "Installed in $inst_path"
 echo
 echo "To install, set the launch options for Tomb Raider to:"
 echo
-echo "env LD_PRELOAD=$inst_path/$lib_name %command%"
+echo "env LD_PRELOAD=\$LD_PRELOAD:$inst_path/$lib_name %command%"
 echo
 echo "To access launch options in desktop Steam, right click on Tomb Raider in"
 echo "the game list and click Properties, then click Set Launch Options."
